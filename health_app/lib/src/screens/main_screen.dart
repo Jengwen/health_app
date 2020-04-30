@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:health_app/src/pages/employeeList_page.dart';
+import 'package:health_app/src/pages/signUp_page.dart';
 //import pages
 import '../pages/home_page.dart';
 import '../pages/signIn_page.dart';
-
+import '../pages/employeeList_page.dart';
+import '../pages/CreateRecord_page.dart';
+import '../pages/addEmployee_page.dart';
+import '../pages/signUp_page.dart';
 
 class MainScreen extends StatefulWidget{
   @override 
@@ -20,6 +25,10 @@ Widget currentPage;
 //create instance of home page
 HomePage homePage;
 SignInPage signInPage;
+SignUpPage signUpPage;
+EmployeeListPage employeeListPage;
+CreateRecordPage createRecordPage;
+AddEmployeePage addEmployeePage;
 
 
   @override 
@@ -28,9 +37,10 @@ SignInPage signInPage;
     super.initState();
     homePage = HomePage();
     signInPage = SignInPage();
+    createRecordPage = CreateRecordPage();
     
     pages =[
-      homePage, signInPage
+      homePage, signInPage, createRecordPage
     ];
 
     currentPage = homePage;
@@ -58,6 +68,10 @@ SignInPage signInPage;
               icon: Icon(Icons.person),
               title: Text("Sign In")
               ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add),
+              title: Text("Add Record")
+              ), 
         ],
         ),
         body: currentPage,
