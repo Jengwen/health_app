@@ -12,6 +12,11 @@ String name;
 String unit;
 String date;
 String temp;
+bool contact = false;
+bool fever = false;
+bool breath = false;
+bool taste = false;
+bool vord = false;
 
 //create global key
 final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -74,14 +79,67 @@ Widget _buildTempField(){
     },
   );
 }
+Widget _buildContactBox(){
+  return CheckboxListTile(
+    title: Text('Have you had contact with anyone who tested positive for COVID-19?'),
+    value: contact, 
+    onChanged: (bool value){
+      setState((){
+        contact = value;
+      });
+    });
+}
+Widget _buildFeverBox(){
+  return CheckboxListTile(
+    title: Text('Have you had a fever in the last 48 hours?'),
+    value: fever, 
+    onChanged: (bool value){
+      setState((){
+        fever = value;
+      });
+    });
+}
+Widget _buildBreathBox(){
+  return CheckboxListTile(
+    title: Text('Are you experiencing shortness of breath, cough, or sore throat?'),
+    value: breath, 
+    onChanged: (bool value){
+      setState((){
+        breath = value;
+      });
+    });
+}
+Widget _buildTasteBox(){
+  return CheckboxListTile(
+    title: Text('Have you had a new loss of taste or smell?'),
+    value: taste, 
+    onChanged: (bool value){
+      setState((){
+        taste = value;
+      });
+    });
+}
+Widget _buildVorDBox(){
+  return CheckboxListTile(
+    title: Text('Have you had vomiting or diarrhea in the last 24 hours?'),
+    value: vord, 
+    onChanged: (bool value){
+      setState((){
+        vord = value;
+      });
+    });
+}
 
   @override 
-Widget build(BuildContext context){
+
+
+  Widget build(BuildContext context){
     return Scaffold(
     appBar: AppBar(title: Text("Add Record"),
     centerTitle: true,),
       body: Container(
-        margin: EdgeInsets.all(24),
+        
+        margin: EdgeInsets.all(14),
         child: Form(
           key: _formKey,
           child: Column(
@@ -91,7 +149,12 @@ Widget build(BuildContext context){
             _buildUnitField(),
             _buildDateField(),
             _buildTempField(),
-            SizedBox(height: 20,),
+            _buildContactBox(),
+            _buildFeverBox(),
+            _buildBreathBox(),
+            _buildTasteBox(),
+            _buildVorDBox(),
+            SizedBox(height: 10,),
             RaisedButton(
               child: Text("Save", style:TextStyle(fontSize: 18, fontWeight:FontWeight.bold, color: Colors.white)),
               onPressed: (){
