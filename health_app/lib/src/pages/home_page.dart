@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+//import pages for navigation
+import '../pages/CreateRecord_page.dart';
+import '../pages/employeeList_page.dart';
 
 
 //create homescreen class
@@ -31,38 +33,49 @@ Widget build (BuildContext context){
            
             children: <Widget>[
             SizedBox(height: 30),  
-            Card(
-             margin: EdgeInsets.symmetric(horizontal: 30), 
-             color: Colors.lightBlue, 
-             child: 
-             
-             Row(
-               children: <Widget>[
-                 Padding(
-                   padding:const EdgeInsets.symmetric(vertical:30, horizontal:30)),
-                 Text("Start a New Record", 
-                 style:TextStyle(
-                   fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),),  
-               ],
-             ),
+            GestureDetector(
+              onTap: (){
+                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=>CreateRecordPage()));
+                   },
+                
+              child: Card(
+               margin: EdgeInsets.symmetric(horizontal: 30), 
+               color: Colors.lightBlue, 
+               child: 
+               
+               Row(
+                 children: <Widget>[
+                   Padding(
+                     padding:const EdgeInsets.symmetric(vertical:30, horizontal:30)),
+                   Text("Start a New Record", 
+                   style:TextStyle(
+                     fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),),  
+                 ],
+               ),
         
+              ),
             ),
             SizedBox(height: 30),  
-            Card(
-             margin: EdgeInsets.symmetric(horizontal: 30), 
-             color: Colors.lightBlue, 
-             child: 
-             
-             Row(
-               children: <Widget>[
-                 Padding(
-                   padding:const EdgeInsets.symmetric(vertical:30, horizontal:30)),
-                 Text("Report By Employee", 
-                 style:TextStyle(
-                   fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),),  
-               ],
-             ),
+            GestureDetector(
+               onTap: (){
+                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=>EmployeeListPage()));
+                   },
+              child: Card(
+               margin: EdgeInsets.symmetric(horizontal: 30), 
+               color: Colors.lightBlue, 
+               child: 
+               
+               Row(
+                 children: <Widget>[
+                   Padding(
+                     padding:const EdgeInsets.symmetric(vertical:30, horizontal:30)),
+                   Text("Report By Employee", 
+                   style:TextStyle(
+                     fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),),  
+                 ],
+               ),
         
+              ),
             ),
             SizedBox(height: 30),  
             Card(
