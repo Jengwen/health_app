@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //import pages for navigation
 import '../pages/CreateRecord_page.dart';
 import '../pages/employeeList_page.dart';
+import '../pages/recordsList_page.dart';
 
 
 //create homescreen class
@@ -78,21 +79,27 @@ Widget build (BuildContext context){
               ),
             ),
             SizedBox(height: 30),  
-            Card(
-             margin: EdgeInsets.symmetric(horizontal: 30), 
-             color: Colors.lightBlue, 
-             child: 
-             
-             Row(
-               children: <Widget>[
-                 Padding(
-                   padding:const EdgeInsets.symmetric(vertical:30, horizontal:30)),
-                 Text("Report By Date", 
-                 style:TextStyle(
-                   fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),),  
-               ],
-             ),
+            GestureDetector(
+              onTap: (){
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=>RecordsListPage()));
+ 
+              },
+              child: Card(
+               margin: EdgeInsets.symmetric(horizontal: 30), 
+               color: Colors.lightBlue, 
+               child: 
+               
+               Row(
+                 children: <Widget>[
+                   Padding(
+                     padding:const EdgeInsets.symmetric(vertical:30, horizontal:30)),
+                   Text("Report By Date", 
+                   style:TextStyle(
+                     fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),),  
+                 ],
+               ),
         
+              ),
             ),
             ]
           ),
